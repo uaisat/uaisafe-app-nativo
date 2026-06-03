@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "UaiSafe",
+    "slug": "uaisafe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.uaisafe.app",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "O UaiSafe precisa de acesso ao Face ID para realizar login seguro e rápido."
+      }
+    },
+    "android": {
+      "package": "com.uaisafe.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#050B18",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "2abf06d1-a1d7-40c6-8f8d-6d9e098913a0"
+      }
+    },
+    "owner": "francislay"
+  }
+}
