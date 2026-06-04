@@ -142,6 +142,24 @@ export default function App() {
         javaScriptEnabled={true}
         domStorageEnabled={true}
         allowsBackForwardNavigationGestures={true}
+        startInLoadingState={true}
+        mixedContentMode="compatibility"
+        allowsInlineMediaPlayback={true}
+        onError={(syntheticEvent) => {
+          const { nativeEvent } = syntheticEvent;
+          console.warn('WebView error:', nativeEvent);
+        }}
+        renderError={(errorDomain, errorCode, errorDesc) => (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#00C2FF" />
+          </View>
+        )}
+        onContentProcessDidTerminate={() => {
+          // Reload WebView if the content process crashes (iOS)
+          if (webViewRef.current) {
+            webViewRef.current.reload();
+          }
+        }}
       />
       {loading && (
         <View style={styles.loadingContainer}>
